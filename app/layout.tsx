@@ -12,6 +12,36 @@ export const metadata: Metadata = {
   description:
     "CYKLADES Records - Independent house music label based in Athens, Greece. Discover our artists and latest releases.",
   keywords: "house music, electronic music, Athens, Greece, record label, CYKLADES",
+  authors: [{ name: "Alexandros Voliotis" }],
+  creator: "Alexandros Voliotis",
+  publisher: "CYKLADES Records",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://cyklades-records.com",
+    title: "CYKLADES Records - House Music Label from Athens",
+    description: "Independent house music label based in Athens, Greece. Discover our artists and latest releases.",
+    siteName: "CYKLADES Records",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CYKLADES Records - House Music Label from Athens",
+    description: "Independent house music label based in Athens, Greece.",
+  },
+  verification: {
+    google: "your-google-verification-code",
+  },
     generator: 'v0.dev'
 }
 
@@ -22,6 +52,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:;"
+        />
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Frame-Options" content="DENY" />
+        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+      </head>
       <body className={`${inter.className} bg-black text-white min-h-screen antialiased`}>
         <BackgroundGallery />
         <Navigation />

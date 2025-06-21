@@ -9,14 +9,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="mb-6 md:mb-8">
-                <Image
-                  src="/images/logo.png"
-                  alt="CYKLADES"
-                  width={150}
-                  height={150}
-                  className="opacity-90 md:w-[200px] md:h-[200px]"
-                  priority
-                />
+                <Image src="/images/logo.png" alt="CYKLADES" width={200} height={200} className="opacity-90" priority />
               </div>
               <div>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-light tracking-wider mb-2 md:mb-4">

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 
 const backgroundImages = [
   "/images/bg1.png",
@@ -32,8 +33,11 @@ export default function BackgroundGallery() {
   const [imagePositions, setImagePositions] = useState<
     Array<Array<{ x: number; y: number; scale: number; opacity: number; imageIndex: number }>>
   >([])
+  const [isInitialized, setIsInitialized] = useState(false)
 
-  useEffect(() => {
+  const pathname = usePathname()
+
+  const initializeImagePositions = () => {
     const isMobile = window.innerWidth < 768
     const imageCount = isMobile ? 8 : 15
 
@@ -48,6 +52,34 @@ export default function BackgroundGallery() {
       }))
     })
     setImagePositions(sections)
+    setIsInitialized(true)
+  }
+
+  useEffect(() => {
+    // Reset and reinitialize when pathname changes to home
+    if (pathname === "/") {
+      setIsInitialized(false)
+      setScrollY(0)
+      setCurrentSection(0)
+
+      // Small delay to ensure clean reset
+      const timer = setTimeout(() => {
+        initializeImagePositions()
+      }, 100)
+
+      return () => clearTimeout(timer)
+    }
+  }, [pathname])
+
+  useEffect(() => {
+    // Initialize on first load if we're on home page
+    if (pathname === "/" && !isInitialized) {
+      initializeImagePositions()
+    }
+  }, [pathname, isInitialized])
+
+  useEffect(() => {
+    if (!isInitialized || pathname !== "/") return
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY
@@ -61,12 +93,22 @@ export default function BackgroundGallery() {
       setCurrentSection(Math.min(section, 4)) // Max 5 sections (0-4)
     }
 
+    const handleResize = () => {
+      // Reinitialize on resize to adjust for mobile/desktop
+      initializeImagePositions()
+    }
+
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [isInitialized, pathname])
 
   const getCurrentImages = () => {
-    if (!imagePositions[currentSection]) return []
+    if (!isInitialized || !imagePositions[currentSection]) return []
 
     const nextSection = Math.min(currentSection + 1, 4)
     const documentHeight = document.documentElement.scrollHeight - window.innerHeight
@@ -86,6 +128,11 @@ export default function BackgroundGallery() {
     })
   }
 
+  // Only render on home page
+  if (pathname !== "/") {
+    return null
+  }
+
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       {getCurrentImages().map((pos, index) => {
@@ -102,7 +149,7 @@ export default function BackgroundGallery() {
 
         return (
           <div
-            key={`${currentSection}-${index}`}
+            key={`${currentSection}-${index}-${isInitialized ? "init" : "loading"}`}
             className="absolute transition-all duration-2000 ease-out"
             style={{
               left: `${x}%`,
