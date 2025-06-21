@@ -41,9 +41,8 @@ export default function BackgroundGallery() {
     const isMobile = window.innerWidth < 768
     const imageCount = isMobile ? 8 : 15
 
-    // Create 5 different background sections with different image arrangements
-    const sections = Array.from({ length: 5 }, (_, sectionIndex) => {
-      return Array.from({ length: imageCount }, (_, imageIndex) => ({
+    const sections = Array.from({ length: 5 }, () => {
+      return Array.from({ length: imageCount }, () => ({
         x: Math.random() * 120 - 10,
         y: Math.random() * 120 - 10,
         scale: isMobile ? 0.2 + Math.random() * 0.5 : 0.3 + Math.random() * 0.7,
@@ -56,23 +55,18 @@ export default function BackgroundGallery() {
   }
 
   useEffect(() => {
-    // Reset and reinitialize when pathname changes to home
     if (pathname === "/") {
       setIsInitialized(false)
       setScrollY(0)
       setCurrentSection(0)
-
-      // Small delay to ensure clean reset
       const timer = setTimeout(() => {
         initializeImagePositions()
       }, 100)
-
       return () => clearTimeout(timer)
     }
   }, [pathname])
 
   useEffect(() => {
-    // Initialize on first load if we're on home page
     if (pathname === "/" && !isInitialized) {
       initializeImagePositions()
     }
@@ -83,18 +77,15 @@ export default function BackgroundGallery() {
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY
-      const documentHeight = document.documentElement.scrollHeight - window.innerHeight
+      const documentHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1)
       const scrollProgress = scrollPosition / documentHeight
-
-      // Calculate section based on total scroll progress (0 to 1)
       const section = Math.floor(scrollProgress * 5)
 
       setScrollY(scrollPosition)
-      setCurrentSection(Math.min(section, 4)) // Max 5 sections (0-4)
+      setCurrentSection(Math.min(section, 4))
     }
 
     const handleResize = () => {
-      // Reinitialize on resize to adjust for mobile/desktop
       initializeImagePositions()
     }
 
@@ -111,9 +102,9 @@ export default function BackgroundGallery() {
     if (!isInitialized || !imagePositions[currentSection]) return []
 
     const nextSection = Math.min(currentSection + 1, 4)
-    const documentHeight = document.documentElement.scrollHeight - window.innerHeight
+    const documentHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1)
     const scrollProgress = scrollY / documentHeight
-    const sectionProgress = (scrollProgress * 5) % 1 // Progress within current section
+    const sectionProgress = (scrollProgress * 5) % 1
 
     return imagePositions[currentSection].map((pos, index) => {
       const nextPos = imagePositions[nextSection]?.[index] || pos
@@ -123,12 +114,13 @@ export default function BackgroundGallery() {
         x: pos.x + (nextPos.x - pos.x) * sectionProgress * 0.3,
         y: pos.y + (nextPos.y - pos.y) * sectionProgress * 0.3,
         scale: pos.scale + (nextPos.scale - pos.scale) * sectionProgress * 0.4,
-        opacity: pos.opacity * (1 - sectionProgress * 0.2) + (nextPos.opacity || 0) * sectionProgress * 0.2,
+        opacity:
+          Number(pos.opacity ?? 0) * (1 - sectionProgress * 0.2) +
+          Number(nextPos.opacity ?? 0) * sectionProgress * 0.2,
       }
     })
   }
 
-  // Only render on home page
   if (pathname !== "/") {
     return null
   }
@@ -139,13 +131,17 @@ export default function BackgroundGallery() {
         const { x, y, scale, opacity, imageIndex } = pos
         const isMobile = window.innerWidth < 768
 
-        // Improved scroll-based animations that work throughout entire scroll
-        const documentHeight = document.documentElement.scrollHeight - window.innerHeight
+        const documentHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1)
         const scrollProgress = scrollY / documentHeight
 
         const zoomFactor = 1 + Math.sin(scrollProgress * Math.PI * 2 + index * 0.5) * 0.15
         const fadeOffset = Math.cos(scrollProgress * Math.PI * 1.5 + index * 0.3) * 0.1
         const parallaxY = scrollY * (0.02 + (index % 7) * 0.01)
+
+        const safeOpacity = Math.max(
+          0,
+          Math.min(1, Number(opacity ?? 0) + (Number.isFinite(fadeOffset) ? fadeOffset : 0))
+        )
 
         return (
           <div
@@ -156,17 +152,17 @@ export default function BackgroundGallery() {
               top: `${y}%`,
               transform: `translate(-50%, -50%) translateY(${parallaxY}px) scale(${scale * zoomFactor})`,
               filter: "blur(1px)",
-              opacity: Math.max(0, Math.min(1, Number(opacity ?? 0) + Number(fadeOffset ?? 0))),
+              opacity: safeOpacity,
             }}
           >
-          <Image
-            src={backgroundImages[imageIndex] || "/placeholder.svg"}
-            alt=""
-            width={isMobile ? 200 : 400}
-            height={isMobile ? 200 : 400}
-            className="object-cover transition-transform duration-3000 ease-in-out"
-            {...(index < 5 ? { priority: true } : { loading: "lazy" })}
-          />
+            <Image
+              src={backgroundImages[imageIndex] || "/placeholder.svg"}
+              alt=""
+              width={isMobile ? 200 : 400}
+              height={isMobile ? 200 : 400}
+              className="object-cover transition-transform duration-3000 ease-in-out"
+              {...(index < 5 ? { priority: true } : { loading: "lazy" })}
+            />
           </div>
         )
       })}

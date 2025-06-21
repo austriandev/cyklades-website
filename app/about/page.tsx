@@ -16,7 +16,7 @@ export default function AboutPage() {
             <div className="space-y-8 md:space-y-12">
               <div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-wide mb-6 md:mb-8 text-center lg:text-left">
-                  House Music Label
+                  About the Label
                 </h3>
                 <p className="text-base md:text-lg font-light leading-relaxed text-gray-300 mb-6 md:mb-8">
                   CYKLADES Records was born from a passion for house music and the rich cultural heritage of Greece.
