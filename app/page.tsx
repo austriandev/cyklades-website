@@ -15,15 +15,15 @@ export default function HomePage() {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-light tracking-wider mb-2 md:mb-4">
                   CYKLADES
                 </h1>
-                <p className="text-xs md:text-sm tracking-widest text-gray-400 font-light">ATHENS • GREECE</p>
+                <p className="text-xs md:text-sm tracking-widest text-gray-400 font-light">ATHENS • HAMBURG • LONDON</p>
               </div>
             </div>
             <div className="flex items-center justify-center lg:justify-end mt-8 lg:mt-0">
               <div className="text-center lg:text-right">
                 <h2 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-light tracking-wide leading-tight">
-                  SOUNDS AND RHYTHMS
+                  INTRODUCING
                   <br />
-                  <span className="text-gray-400">FROM THE AEGEAN</span>
+                  <span className="text-gray-400">ELECTRONIC EXCELLENCE</span>
                 </h2>
               </div>
             </div>

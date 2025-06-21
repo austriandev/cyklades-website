@@ -20,23 +20,23 @@ export default function AboutPage() {
                 </h3>
                 <p className="text-base md:text-lg font-light leading-relaxed text-gray-300 mb-6 md:mb-8">
                   CYKLADES Records was born from a passion for house music and the rich cultural heritage of Greece.
-                  Founded by Alexandros Voliotis in Athens, our label represents the intersection of ancient
-                  Mediterranean soul and contemporary electronic expression.
+                  Founded in Athens Greece, our label represents the intersection of ancient
+                  underground soul and contemporary electronic expression.
                 </p>
                 <p className="text-base md:text-lg font-light leading-relaxed text-gray-300">
                   Named after the iconic Greek island chain, CYKLADES embodies the cyclical nature of music, life, and
                   the eternal dance between tradition and innovation.
                 </p>
               </div>
-
-              <div className="border-t border-white/10 pt-8 md:pt-12">
-                <h4 className="text-lg md:text-xl font-light tracking-wide mb-4 text-center lg:text-left">Founder</h4>
-                <p className="text-base md:text-lg font-light text-gray-300">Alexandros Voliotis</p>
-              </div>
-
               <div className="border-t border-white/10 pt-8 md:pt-12">
                 <h4 className="text-lg md:text-xl font-light tracking-wide mb-4 text-center lg:text-left">Location</h4>
                 <p className="text-base md:text-lg font-light text-gray-300">Athens, Greece</p>
+                <p className="text-base md:text-lg font-light text-gray-400 opacity-60 italic">
+                  Hamburg, Germany – soon
+                </p>
+                <p className="text-base md:text-lg font-light text-gray-400 opacity-60 italic">
+                  London, UK – soon
+                </p>
               </div>
             </div>
           </div>

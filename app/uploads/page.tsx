@@ -1,10 +1,8 @@
+'use client'
+
 export default function UploadsPage() {
   const releases = [
-    "Alexandros Voliotis - Aegean Nights EP",
-    "Various Artists - Athens Underground",
-    "Coming Soon",
-    "Coming Soon",
-    "Coming Soon",
+    { title: 'RADIOSHOW: Austrian - For the kids, to dance [EP. 001] coming 25/06', link: '' },
   ]
 
   return (
@@ -23,10 +21,24 @@ export default function UploadsPage() {
           <div className="lg:col-span-9">
             <div className="space-y-6 md:space-y-8">
               {releases.map((release, index) => (
-                <div key={index} className="border-b border-white/10 pb-4 md:pb-6 text-center lg:text-left">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-light tracking-wide hover:text-gray-400 transition-colors cursor-pointer">
-                    {release}
-                  </h3>
+                <div
+                  key={index}
+                  className="border-b border-white/10 pb-4 md:pb-6 text-center lg:text-left"
+                >
+                  {release.link ? (
+                    <a
+                      href={release.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-xl sm:text-2xl md:text-3xl font-light tracking-wide hover:text-gray-400 transition-colors cursor-pointer"
+                    >
+                      {release.title}
+                    </a>
+                  ) : (
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-light tracking-wide text-gray-500 italic">
+                      {release.title}
+                    </h3>
+                  )}
                 </div>
               ))}
             </div>

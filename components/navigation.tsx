@@ -36,7 +36,7 @@ export default function Navigation() {
 
           <div className="flex flex-col space-y-4 mt-8 pt-8 border-t border-white/20">
             <a
-              href="https://instagram.com/cyklades_records"
+              href="https://instagram.com/cyklades_official"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-400 transition-colors opacity-60"
@@ -44,12 +44,19 @@ export default function Navigation() {
               <Instagram size={16} />
             </a>
             <a
-              href="https://soundcloud.com/cyklades_records"
+              href="https://soundcloud.com/cyklades"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-400 transition-colors opacity-60"
             >
-              <Music size={16} />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="5 5 18 18"
+                fill="currentColor"
+                className="w-5 h-5"
+              >
+                <path d="M17.8 10.7c-.5 0-.9.1-1.3.3-.2-2.5-2.3-4.5-4.9-4.5-1.1 0-2 .4-2.8 1.1-.5.5-.9 1-1.1 1.7h-.1c-1.7 0-3 1.4-3 3s1.3 3 3 3h10.2c1.3 0 2.4-1.1 2.4-2.5s-1.1-2.5-2.4-2.5z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -81,7 +88,7 @@ export default function Navigation() {
 
               <div className="flex space-x-8 mt-8 pt-8 border-t border-white/20">
                 <a
-                  href="https://instagram.com/cyklades_records"
+                  href="https://instagram.com/cyklades_official"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-gray-400 transition-colors opacity-60"
@@ -89,7 +96,7 @@ export default function Navigation() {
                   <Instagram size={20} />
                 </a>
                 <a
-                  href="https://soundcloud.com/cyklades_records"
+                  href="https://soundcloud.com/cyklades"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-gray-400 transition-colors opacity-60"

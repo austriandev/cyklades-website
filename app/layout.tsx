@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://cyklades-records.com",
+    url: "https://cyklades.com",
     title: "CYKLADES Records - House Music Label from Athens",
     description: "Independent house music label based in Athens, Greece. Discover our artists and latest releases.",
     siteName: "CYKLADES Records",

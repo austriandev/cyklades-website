@@ -16,20 +16,20 @@ export default function ContactPage() {
               <div className="text-center lg:text-left">
                 <h3 className="text-xl md:text-2xl font-light tracking-wide mb-4">General</h3>
                 <a
-                  href="mailto:info@cyklades-records.com"
+                  href="mailto:info@cyklades.com"
                   className="text-base md:text-lg font-light text-gray-300 hover:text-white transition-colors break-all"
                 >
-                  info@cyklades-records.com
+                  info@cyklades.com
                 </a>
               </div>
 
               <div className="border-t border-white/10 pt-8 md:pt-12 text-center lg:text-left">
                 <h3 className="text-xl md:text-2xl font-light tracking-wide mb-4">Demos</h3>
                 <a
-                  href="mailto:demos@cyklades-records.com"
+                  href="mailto:demos@cyklades.com"
                   className="text-base md:text-lg font-light text-gray-300 hover:text-white transition-colors break-all"
                 >
-                  demos@cyklades-records.com
+                  demos@cyklades.com
                 </a>
               </div>
 
@@ -38,7 +38,7 @@ export default function ContactPage() {
                 <div className="space-y-2">
                   <div>
                     <a
-                      href="https://instagram.com/cyklades_records"
+                      href="https://instagram.com/cyklades_official"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-base md:text-lg font-light text-gray-300 hover:text-white transition-colors"
@@ -48,7 +48,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <a
-                      href="https://soundcloud.com/cyklades_records"
+                      href="https://soundcloud.com/cyklades"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-base md:text-lg font-light text-gray-300 hover:text-white transition-colors"

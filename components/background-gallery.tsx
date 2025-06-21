@@ -156,18 +156,17 @@ export default function BackgroundGallery() {
               top: `${y}%`,
               transform: `translate(-50%, -50%) translateY(${parallaxY}px) scale(${scale * zoomFactor})`,
               filter: "blur(1px)",
-              opacity: Math.max(0, Math.min(1, opacity + fadeOffset)),
+              opacity: Math.max(0, Math.min(1, Number(opacity ?? 0) + Number(fadeOffset ?? 0))),
             }}
           >
-            <Image
-              src={backgroundImages[imageIndex] || "/placeholder.svg"}
-              alt=""
-              width={isMobile ? 200 : 400}
-              height={isMobile ? 200 : 400}
-              className="object-cover transition-transform duration-3000 ease-in-out"
-              priority={index < 5}
-              loading="lazy"
-            />
+          <Image
+            src={backgroundImages[imageIndex] || "/placeholder.svg"}
+            alt=""
+            width={isMobile ? 200 : 400}
+            height={isMobile ? 200 : 400}
+            className="object-cover transition-transform duration-3000 ease-in-out"
+            {...(index < 5 ? { priority: true } : { loading: "lazy" })}
+          />
           </div>
         )
       })}
