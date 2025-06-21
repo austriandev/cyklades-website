@@ -35,10 +35,10 @@ export default function HomePage() {
       <section className="h-screen flex items-center justify-center px-4 md:px-8">
         <div className="w-full max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide mb-6 md:mb-8">
-            HOUSE MUSIC
+            OUR MUSIC
           </h2>
           <p className="text-base sm:text-lg md:text-xl font-light text-gray-400 tracking-wide leading-relaxed px-4">
-            Born from the intersection of ancient Mediterranean soul and contemporary electronic expression
+            Born from the intersection of ancient underground soul and contemporary electronic expression
           </p>
         </div>
       </section>
