@@ -7,7 +7,7 @@ export default function ArtistsPage() {
     {
       name: 'Austrian',
       instagram: 'https://instagram.com/austrian___',
-      soundcloud: 'https://soundcloud.com/austrian',
+      soundcloud: 'https://soundcloud.com/austriancyklades',
     },
     // 👉 Add more artists here
   ]
