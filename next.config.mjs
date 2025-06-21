@@ -11,8 +11,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/cyklades-website' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/cyklades-website' : '',
+  // 🔥 No prefix or basePath needed for custom domain!
+  assetPrefix: '',
+  basePath: '',
 }
 
 export default nextConfig
