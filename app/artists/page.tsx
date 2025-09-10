@@ -9,6 +9,11 @@ export default function ArtistsPage() {
       instagram: 'https://instagram.com/austrian___',
       soundcloud: 'https://soundcloud.com/austriancyklades',
     },
+    {
+      name: 'BE:KAS',
+      instagram: 'https://instagram.com/be.kas__',
+      soundcloud: 'https://soundcloud.com/be_kas',
+    },
     // 👉 Add more artists here
   ]
 

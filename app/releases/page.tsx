@@ -1,8 +1,8 @@
 'use client'
 
-export default function UploadsPage() {
+export default function ReleasesPage() {
   const releases = [
-    { title: 'RADIOSHOW: Austrian - For the kids, to dance [EP. 001] coming 25/06', link: '' },
+    { title: 'RADIOSHOW: BE:KAS - For the kids, to dance [EP. 001]', link: '' },
   ]
 
   return (

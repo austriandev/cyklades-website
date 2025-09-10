@@ -15,7 +15,7 @@ export default function HomePage() {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-light tracking-wider mb-2 md:mb-4">
                   CYKLADES
                 </h1>
-                <p className="text-xs md:text-sm tracking-widest text-gray-400 font-light">ATHENS • HAMBURG • LONDON</p>
+                <p className="text-xs md:text-sm tracking-widest text-gray-400 font-light">ATHENS</p>
               </div>
             </div>
             <div className="flex items-center justify-center lg:justify-end mt-8 lg:mt-0">
@@ -82,7 +82,7 @@ export default function HomePage() {
               ARTISTS
             </a>
             <a
-              href="/uploads"
+              href="/releases"
               className="text-white hover:text-gray-400 transition-colors tracking-widest text-sm py-2 px-4 border border-white/20 rounded hover:border-white/40"
             >
               RELEASES

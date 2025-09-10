@@ -29,7 +29,7 @@ export default function ContactPage() {
                   href="mailto:demos@cyklades.com"
                   className="text-base md:text-lg font-light text-gray-300 hover:text-white transition-colors break-all"
                 >
-                  demos@cyklades.com
+                  demo@cyklades.com
                 </a>
               </div>
 
